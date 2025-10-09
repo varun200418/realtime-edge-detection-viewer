@@ -1,3 +1,6 @@
+
+Project live application - https://realtime-edge-detection-viewer.vercel.app/
+
 # Real-Time Edge Detection Viewer
 
 A comprehensive computer vision application demonstrating real-time edge detection using OpenCV, featuring both native Android implementation and web-based viewer.
