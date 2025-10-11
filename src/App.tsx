@@ -11,10 +11,14 @@ function App() {
     isStreaming,
     cameraError,
     stats,
+    processingMode,
+    colorChannel,
     startCamera,
     stopCamera,
     toggleViewMode,
-    captureSnapshot
+    captureSnapshot,
+    setProcessingMode,
+    setColorChannel
   } = useCameraStream();
 
   const handleToggleStream = () => {
@@ -32,11 +36,11 @@ function App() {
           <div className="flex items-center justify-center gap-3 mb-4">
             <Activity className="w-10 h-10 text-cyan-500" />
             <h1 className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-              Real-Time Edge Detection Viewer
+              Interactive Real-Time Image Processor
             </h1>
           </div>
           <p className="text-gray-400 text-lg">
-            Live Camera Feed | OpenCV Edge Detection | Performance Monitoring
+            Live Camera Feed | Real-Time Image Effects | Performance Monitoring
           </p>
         </header>
 
@@ -83,9 +87,13 @@ function App() {
             <ControlPanel
               isStreaming={isStreaming}
               viewMode={viewMode}
+              processingMode={processingMode}
+              colorChannel={colorChannel}
               onToggleStream={handleToggleStream}
               onToggleViewMode={toggleViewMode}
               onCaptureSnapshot={captureSnapshot}
+              onProcessingModeChange={setProcessingMode}
+              onColorChannelChange={setColorChannel}
             />
           </div>
 
@@ -97,8 +105,8 @@ function App() {
                 <ul className="text-gray-300 space-y-1">
                   <li>• Browser MediaDevices API camera access</li>
                   <li>• Real-time frame capture via Canvas</li>
-                  <li>• JavaScript-based Canny edge detection</li>
-                  <li>• Sobel operator gradient computation</li>
+                  <li>• Dynamic client-side image processing</li>
+                  <li>• Multiple real-time effects</li>
                 </ul>
               </div>
 
@@ -125,9 +133,10 @@ function App() {
               <div className="bg-gray-900 p-4 rounded-lg border border-gray-700">
                 <h3 className="font-semibold text-purple-400 mb-2">Features</h3>
                 <ul className="text-gray-300 space-y-1">
-                  <li>• Live camera feed</li>
-                  <li>• Real-time edge detection</li>
-                  <li>• Raw/Processed view toggle</li>
+                  <li>• Live camera feed & view toggle</li>
+                  <li>• Canny Edge Detection</li>
+                  <li>• Grayscale & Invert Filters</li>
+                  <li>• RGB Color Channel Isolation</li>
                   <li>• Snapshot download</li>
                 </ul>
               </div>
@@ -139,11 +148,10 @@ function App() {
             <div className="text-gray-300 space-y-2 text-sm">
               <p>
                 This web application demonstrates real-time computer vision processing using the browser's camera.
-                It captures live video frames and applies edge detection algorithms to visualize image gradients.
+                It captures live video frames and applies a variety of image processing effects to visualize the output.
               </p>
               <p>
-                The edge detection implementation uses Sobel operators to compute horizontal and vertical gradients,
-                simulating OpenCV's Canny edge detection algorithm. All processing happens in real-time on the client side.
+                All processing, including Canny edge detection, color filtering, and other effects, happens in real-time on the client side.
               </p>
             </div>
           </div>

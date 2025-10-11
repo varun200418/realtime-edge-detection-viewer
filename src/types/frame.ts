@@ -18,3 +18,16 @@ export enum ViewMode {
   RAW = 'raw',
   PROCESSED = 'processed'
 }
+
+export enum ProcessingMode {
+  CANNY_EDGE = 'Canny Edge',
+  GRAYSCALE = 'Grayscale',
+  INVERT = 'Invert Colors',
+  COLOR_CHANNEL = 'Color Channel'
+}
+
+export enum ColorChannel {
+  RED = 0,
+  GREEN = 1,
+  BLUE = 2
+}
